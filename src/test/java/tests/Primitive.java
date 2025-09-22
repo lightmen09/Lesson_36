@@ -13,7 +13,6 @@ public class Primitive {
             System.out.println("a * b = " + (a * b));
             System.out.println("a / b = " + (a / b));
             System.out.println("a % b = " + (a % b));
-            System.out.println();
 
             System.out.println("Арифметические операции над int и double ");
             int c = 10;
@@ -23,7 +22,6 @@ public class Primitive {
             System.out.println("c - d = " + (c - d));
             System.out.println("c * d = " + (c * d));
             System.out.println("c / d = " + (c / d));
-            System.out.println();
 
             System.out.println(" Логические операции ");
             int x = 20;
@@ -35,8 +33,6 @@ public class Primitive {
             System.out.println("x >= y: " + (x >= y));
             System.out.println("x == y: " + (x == y));
             System.out.println("x != y: " + (x != y));
-            System.out.println();
-
 
             System.out.println(" Диапазоны типов данных ");
             System.out.println("Тип float:");
@@ -51,7 +47,6 @@ public class Primitive {
 
             int maxInt = Integer.MAX_VALUE;
             System.out.println("Максимальное значение int: " + maxInt);
-
 
             System.out.println("maxInt + 1 = " + (maxInt + 1)); // Происходит переполнение
         }
