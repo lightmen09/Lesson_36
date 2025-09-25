@@ -20,27 +20,21 @@ public class TestData {
     public static final String email = faker.internet().emailAddress();
     public static final String invalidEmail = "invalidEmail";
 
-    private static final String[] genders = {"Male", "Female", "Other"};
-    public static final String gender = getRandom(genders);
+    public static final String gender = faker.options().option("Male", "Female", "Other");
 
     public static final String phone = faker.phoneNumber().subscriberNumber(10);
-
-    public static final String dayOfBirth = String.valueOf(ThreadLocalRandom.current().nextInt(1, 28));
-    public static final String monthOfBirth = "August";
-    public static final String yearOfBirth = String.valueOf(ThreadLocalRandom.current().nextInt(1980, 2005));
-    public static final String birthDate = dayOfBirth + " " + monthOfBirth + "," + yearOfBirth;
-
-    private static final String[] subjects = {"Economics", "Maths", "History", "Computer Science"};
-    public static final String subject = getRandom(subjects);
-
-    private static final String[] hobbies = {"Sports", "Reading", "Music"};
-    public static final String hobby = getRandom(hobbies);
+    public static final String year = String.valueOf(faker.number().numberBetween(1950, 2025));
+    public static final String day = String.valueOf(faker.number().numberBetween(1, 25));
+    public static final String month = faker.options().option(
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+    );
+    public static final String subject = faker.options().option("Math", "Biology", "Chemistry", "Physics");
+    public static final String hobby = faker.options().option("Sports", "Reading", "Music");
 
     public static final String picture = "1234.png";
     public static final String address = faker.address().streetAddress();
-
-    private static final String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-    public static final String state = getRandom(states);
+    public static final String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
 
     public static final String city = switch (state) {
         case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
