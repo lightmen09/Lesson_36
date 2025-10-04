@@ -20,7 +20,7 @@ public class MyBookTests extends TestBase {
     })
     @ParameterizedTest(name = "В результатах поиска по автору {0} должна быть книга {1}")
     @Tag("SEARCH")
-    void searchResultShouldShowHeader(String authorName, String bookName) {
+    void searchResultShouldShowAuthorAndBook(String authorName, String bookName) {
         $("[placeholder='Книга или автор']").setValue(authorName).pressEnter();
         $$("a[href*='/books/'], a[href*='/book/'], a[href*='/work/'], a[href*='/author/']")
                 .shouldHave(sizeGreaterThan(0), Duration.ofSeconds(10));
@@ -44,7 +44,7 @@ public class MyBookTests extends TestBase {
     @EnumSource(AuthorBook.class)
     @ParameterizedTest(name = "В результатах поиска по автору {0} должна быть книга {1}")
     @Tag("SMOKE")
-    void checkSearchResultContainFullAuthorName(AuthorBook data) {
+    void checkSearchResultContainAuthorNameAndBook(AuthorBook data) {
         String authorName = data.getAuthor();
         String bookName = data.getBook();
 
