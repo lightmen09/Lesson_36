@@ -21,6 +21,7 @@ public class AutomationPracticeFormPage {
             phoneInput = $("#userNumber"),
             dateOfBirthInput = $("#dateOfBirthInput"),
             subjectInput = $("#subjectsInput"),
+            subjectOption = $("#react-select-2-option-0"),
             hobbiesWrapper = $("#hobbiesWrapper"),
             uploadPicture = $("#uploadPicture"),
             currentAddress = $("#currentAddress"),
@@ -72,7 +73,8 @@ public class AutomationPracticeFormPage {
     }
 
     public AutomationPracticeFormPage setSubject(String value) {
-        subjectInput.setValue(value).pressEnter();
+        subjectInput.setValue(value);
+        subjectOption.click();
         return this;
     }
 
@@ -112,4 +114,9 @@ public class AutomationPracticeFormPage {
         resultsTable.checkResult(key, value);
         return this;
     }
+public AutomationPracticeFormPage noTable(){
+    resultsTable.shouldNotHaveResult();
+    return this;
+}
+
 }

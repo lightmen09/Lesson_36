@@ -19,63 +19,64 @@ public class RegistrationWithFaker {
 
     @Test
     void fillFormFullDataTest() {
+        TestData data = new TestData();
+
         formPage.openPage()
                 .removeBanners()
-                .setFirstName(TestData.firstName)
-                .setLastName(TestData.lastName)
-                .setEmail(TestData.email)
-                .selectGender(TestData.gender)
-                .setPhone(TestData.phone)
-                .setDateOfBirth(TestData.day, TestData.month, TestData.year)
-                .setSubject(TestData.subject)
-                .selectHobby(TestData.hobby)
-                .uploadPicture(TestData.picture)
-                .setAddress(TestData.address)
-                .selectState(TestData.state)
-                .selectCity(TestData.city)
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setEmail(data.email)
+                .selectGender(data.gender)
+                .setPhone(data.phone)
+                .setDateOfBirth(data.day, data.month, data.year)
+                .setSubject(data.subject)
+                .selectHobby(data.hobby)
+                .uploadPicture(data.picture)
+                .setAddress(data.address)
+                .selectState(data.state)
+                .selectCity(data.city)
                 .submit()
 
-                .checkTable("Student Name", TestData.fullName)
-                .checkTable("Student Email", TestData.email)
-                .checkTable("Gender", TestData.gender)
-                .checkTable("Mobile", TestData.phone)
-                .checkTable("Date of Birth", TestData.day + " " + TestData.month + "," + TestData.year)
-                .checkTable("Subjects", TestData.subject)
-                .checkTable("Hobbies", TestData.hobby)
-                .checkTable("Picture", TestData.picture)
-                .checkTable("Address", TestData.address)
-                .checkTable("State and City", TestData.stateAndCity);
+                .checkTable("Student Name", data.fullName)
+                .checkTable("Student Email", data.email)
+                .checkTable("Gender", data.gender)
+                .checkTable("Mobile", data.phone)
+                .checkTable("Date of Birth", data.day + " " + data.month + "," + data.year)
+                .checkTable("Subjects", data.subject)
+                .checkTable("Hobbies", data.hobby)
+                .checkTable("Picture", data.picture)
+                .checkTable("Address", data.address)
+                .checkTable("State and City", data.stateAndCity);
     }
 
     @Test
     void fillFormMinimumDataTest() {
-        String minFirstName = TestData.firstName;
-        String minLastName = TestData.lastName;
-        String minFullName = minFirstName + " " + minLastName;
-        String minPhone = TestData.phone;
+        TestData data = new TestData();
 
         formPage.openPage()
-                .setFirstName(minFirstName)
-                .setLastName(minLastName)
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
                 .selectGender("Male")
-                .setPhone(minPhone)
+                .setPhone(data.phone)
                 .submit()
 
-                .checkTable("Student Name", minFullName)
+                .checkTable("Student Name", data.fullName)
                 .checkTable("Gender", "Male")
-                .checkTable("Mobile", minPhone);
+                .checkTable("Mobile", data.phone);
     }
 
     @Test
     void negativeInvalidEmailTest() {
+        TestData data = new TestData();
+
         formPage.openPage()
-                .setFirstName(TestData.firstName)
-                .setLastName(TestData.lastName)
-                .setEmail(TestData.invalidEmail)
+                .setFirstName(data.firstName)
+                .setLastName(data.lastName)
+                .setEmail(data.invalidEmail)
                 .selectGender("Male")
-                .setPhone(TestData.phone)
+                .setPhone(data.phone)
                 .submit()
 
-                .checkTable("Student Name", TestData.fullName);
+                .noTable();
     }
 }

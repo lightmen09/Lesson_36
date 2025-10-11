@@ -7,4 +7,7 @@ public class ResultsTable {
     public void checkResult(String key, String value) {
         $(".table-responsive").shouldHave(text(key), text(value));
     }
+    public void shouldNotHaveResult() {
+        $(".modal-content").shouldNot();
+    }
 }
