@@ -1,0 +1,14 @@
+{
+  "orderId": "ORD-2025-1",
+  "customer": {
+    "id": "CUST-23",
+    "name": "Mikel Jordan",
+    "email": "jordan@example.com"
+  },
+  "items": [
+    { "code": "Nike-001", "name": "Running Nike", "qty": 1, "price": 129.99 },
+    { "code": "Nike-002", "name": "Sport Nike", "qty": 2, "price": 229.50 }
+  ],
+  "total": 588.99,
+  "status": "PAID"
+}

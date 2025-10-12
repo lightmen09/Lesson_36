@@ -17,6 +17,12 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
     testImplementation "org.slf4j:slf4j-simple:1.7.36"
     testImplementation "com.github.javafaker:javafaker:1.0.2"
+    testImplementation "commons-io:commons-io:2.15.0"
+    testImplementation "com.codeborne:pdf-test:1.5.0"
+    testImplementation "com.codeborne:xls-test:1.4.3"
+    testImplementation "com.opencsv:opencsv:5.9"
+    testImplementation "com.google.code.gson:gson:2.10.1"
+    testImplementation "com.fasterxml.jackson.core:jackson-databind:2.19.1"
 }
 
 tasks.withType(JavaCompile).configureEach {
