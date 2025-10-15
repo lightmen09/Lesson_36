@@ -7,10 +7,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RandomUtils {
     private static final Faker faker = new Faker(new Locale("en"));
 
-    public static <T> T getRandom(T[] values) {
-        return values[ThreadLocalRandom.current().nextInt(values.length)];
-    }
-
     public static String randomFirstName() { return faker.name().firstName(); }
     public static String randomLastName() { return faker.name().lastName(); }
     public static String randomEmail() { return faker.internet().emailAddress(); }
